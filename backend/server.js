@@ -20,13 +20,7 @@ const app = express()
 app.use(helmet())
 
 // CORS configuration
-const corsOptions = {
-    origin: process.env.FRONTEND_URL || 'http://localhost:5173',
-    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-    allowedHeaders: ['Content-Type', 'Authorization'],
-    credentials: true
-}
-app.use(cors(corsOptions))
+app.use(cors())
 
 // Rate limiting
 const limiter = rateLimit({
